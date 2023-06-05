@@ -101,7 +101,7 @@ class _testState extends State<test> with TickerProviderStateMixin {
                     width: 200,
                     child: Center(
                         child: Text(
-                      "125",
+                      "126",
                       style: TextStyle(
                         color: Color.fromARGB(255, 132, 255, 0),
                         fontSize: 110,
