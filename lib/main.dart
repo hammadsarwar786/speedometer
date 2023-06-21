@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:speedometer/test.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
+import 'package:speedometer/providers/speedprovider.dart';
+import 'package:speedometer/screens/homescreen.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => SpeedNotificationProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+        ),
       ),
-      home: test(),
+      title: 'Speed Notification Demo',
+      debugShowCheckedModeBanner: false,
+      home: homescreen(),
     );
   }
 }
